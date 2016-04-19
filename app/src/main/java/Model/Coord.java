@@ -7,6 +7,11 @@ public class Coord {
     private Double lon;
     private Double lat;
 
+    public Coord(Double lon, Double lat){
+        this.lon = lon;
+        this.lat = lat;
+    }
+
     public Double getLon() {
         return lon;
     }

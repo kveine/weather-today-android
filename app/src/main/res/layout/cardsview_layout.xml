@@ -13,7 +13,13 @@
         tools:background="#22000000">
 
         <TextView
-            android:id="@+id/quiz_question"
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"

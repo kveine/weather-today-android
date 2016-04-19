@@ -6,6 +6,10 @@ package Model;
 public class Rain {
     private Double _3h;
 
+    public Rain(Double _3h){
+        this._3h = _3h;
+    }
+
     public Double get3h() {
         return _3h;
     }

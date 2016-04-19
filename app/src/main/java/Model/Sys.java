@@ -11,6 +11,15 @@ public class Sys {
     private Integer sunrise;
     private Integer sunset;
 
+    public Sys(Integer type, Integer id, Double message, String country, Integer sunrise, Integer sunset){
+        this.type = type;
+        this.id = id;
+        this.message = message;
+        this.country = country;
+        this.sunrise = sunrise;
+        this.sunset = sunset;
+    }
+
     public Integer getType() {
         return type;
     }

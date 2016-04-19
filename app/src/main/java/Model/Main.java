@@ -10,6 +10,14 @@ public class Main {
     private Double tempMin;
     private Double tempMax;
 
+    public Main(Double temp, Integer pressure, Integer humidity, Double tempMin, Double tempMax){
+        this.temp = temp;
+        this.pressure = pressure;
+        this.humidity = humidity;
+        this.tempMin = tempMin;
+        this.tempMax = tempMax;
+    }
+
     public Double getTemp() {
         return temp;
     }
