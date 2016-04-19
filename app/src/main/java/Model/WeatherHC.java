@@ -13,10 +13,11 @@ public class WeatherHC {
     private final String sunrise;
     private final String sunset;
     private final String geoCoords;
+    private final String icon;
 
 
-    public WeatherHC(String city, String temperature, String wind, String cloudiness,
-                   String pressure, String humidity, String sunrise, String sunset, String geoCoords  ) {
+    public WeatherHC(String city, String temperature, String wind, String cloudiness, String pressure,
+                     String humidity, String sunrise, String sunset, String geoCoords, String icon  ) {
         this.city = city;
         this.temperature = temperature;
         this.wind = wind;
@@ -26,6 +27,7 @@ public class WeatherHC {
         this.sunrise = sunrise;
         this.sunset = sunset;
         this.geoCoords = geoCoords;
+        this.icon = icon;
     }
 
     public String getCity() {
@@ -63,4 +65,6 @@ public class WeatherHC {
     public String getGeoCoords(){
         return geoCoords;
     }
+
+    public String getIcon(){ return icon; }
 }

@@ -1,7 +1,10 @@
 package com.example.kristin.weathertoday;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -107,11 +111,6 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView rv = (RecyclerView) findViewById(R.id.city_list);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(new WeatherListAdapter(new WeatherProviderHC().readWeather(), weatherList));
-
-        /*Typeface tf = Typeface.createFromAsset(this.getAssets(),
-                "fonts/weathericons-regular-webfont.ttf");
-        //txt1.setTypeface(tf);*/
-
     }
 
 
@@ -135,9 +134,29 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(WeatherViewHolder holder, int position) {
 
-
             holder.cityName.setText(cities.get(position).getCity());
             holder.temperature.setText(cities.get(position).getTemperature());
+
+            switch (cities.get(position).getIcon()){
+                case "d01":
+                    holder.icon.setImageResource(R.drawable.d01);
+                    break;
+                case "d02":
+                    holder.icon.setImageResource((R.drawable.d02));
+                    break;
+                case "d03":
+                    holder.icon.setImageResource(R.drawable.d03);
+                    break;
+                case "d04":
+                    holder.icon.setImageResource(R.drawable.d04);
+                    break;
+            }
+            //Resources res = getResources(R.drawable.01d);
+            //holder.icon.setImageResource(res);
+           /* holder.icon.setText(cities.get(position).getIcon());
+            Typeface tf = Typeface.createFromAsset(getAssets(),
+                    "weather.ttf");
+            holder.icon.setTypeface(tf);*/
             if(weatherInfo != null){
                 holder.cityName.setText(weatherInfo.getName());
                 holder.temperature.setText(weatherInfo.getMain().getTemp().toString());
@@ -154,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
     class WeatherViewHolder extends RecyclerView.ViewHolder{
         TextView cityName;
         TextView temperature;
+        ImageView icon;
 
         View.OnClickListener cardOnClickListener = new View.OnClickListener() {
             @Override
@@ -169,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
             super(itemView);
             cityName = (TextView) itemView.findViewById(R.id.city);
             temperature = (TextView) itemView.findViewById(R.id.temperature);
+            icon = (ImageView) itemView.findViewById(R.id.icon);
             itemView.setOnClickListener(cardOnClickListener);
         }
 
