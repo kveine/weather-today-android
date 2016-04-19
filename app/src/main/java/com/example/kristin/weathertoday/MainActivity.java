@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(new WeatherListAdapter(new WeatherProviderHC().readWeather()));
 
+        //Code to collect data using Retrofit
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://api.openweathermap.org/data/2.5/").build();
         WeatherAPI weatherAPI = retrofit.create(WeatherAPI.class);
         /*weatherAPI.getWeatherInformation("Oslo", "5a3d6fa759a2e9ecd6ade28247c684d3", new Callback<WeatherPOJO>() {
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<WeatherPOJO> call, Throwable t) {
-                //set message for TextView
+                //print error message
             }
         });*/
     }
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 int position = getAdapterPosition();
                 Intent intent = new Intent(v.getContext(), DetailedInformationActivity.class);
                 //intent.putExtra(getPackageName(), position);
-                intent.putExtra(EXTRA_MESSAGE, position);
+                //intent.putExtra(EXTRA_MESSAGE, position);
                 startActivity(intent);
             }
         };
