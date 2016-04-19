@@ -31,6 +31,7 @@ import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
+    public final static String EXTRA_MESSAGE = "com.example.kristin.cardviewtest.position";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,8 +94,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int position = getAdapterPosition();
                 Intent intent = new Intent(v.getContext(), DetailedInformationActivity.class);
-                //intent.putExtra(getPackageName(), position);
-                //intent.putExtra(EXTRA_MESSAGE, position);
+                intent.putExtra(EXTRA_MESSAGE, position);
                 startActivity(intent);
             }
         };
