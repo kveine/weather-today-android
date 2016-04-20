@@ -30,9 +30,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     public final static String EXTRA_MESSAGE = "com.example.kristin.cardviewtest.position";
-    public WeatherPOJO weatherInfo;
-    WeatherPOJO osloInfo, bergenInfo, trondheimInfo, stavangerInfo;
-    List<WeatherPOJO> weatherList;
+    //These WeatherPOJO objects were made to store the different call data and to be added to List<WeatherPOJO> weatherList
+    /*WeatherPOJO osloInfo, bergenInfo, trondheimInfo, stavangerInfo;
+    List<WeatherPOJO> weatherList;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Code to collect data using Retrofit
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://api.openweathermap.org/data/2.5/").addConverterFactory(GsonConverterFactory.create()).build();
+        /*Retrofit retrofit = new Retrofit.Builder().baseUrl("http://api.openweathermap.org/data/2.5/").addConverterFactory(GsonConverterFactory.create()).build();
         WeatherAPI weatherAPI = retrofit.create(WeatherAPI.class);
 
         Call<WeatherPOJO> callOslo = weatherAPI.getWeatherInformation("oslo", "5a3d6fa759a2e9ecd6ade28247c684d3");
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<WeatherPOJO> call, Response<WeatherPOJO> response) {
                 if (response.isSuccessful()) {
-                    osloInfo = response.body();
+                    //osloInfo = response.body();
                     //weatherList.add(osloInfo);
                 }
             }
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<WeatherPOJO> call, Response<WeatherPOJO> response) {
                 if (response.isSuccessful()) {
-                    bergenInfo = response.body();
+                    //bergenInfo = response.body();
                     //weatherList.add(bergenInfo);
                 }
             }
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<WeatherPOJO> call, Response<WeatherPOJO> response) {
                 if (response.isSuccessful()) {
-                    trondheimInfo = response.body();
+                    //trondheimInfo = response.body();
                     //weatherList.add(trondheimInfo);
                 }
             }
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<WeatherPOJO> call, Response<WeatherPOJO> response) {
                 if (response.isSuccessful()) {
-                    stavangerInfo = response.body();
+                    //stavangerInfo = response.body();
                     //weatherList.add(stavangerInfo);
                 }
             }
@@ -106,22 +106,21 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<WeatherPOJO> call, Throwable t) {
 
             }
-        });
+        });*/
 
         RecyclerView rv = (RecyclerView) findViewById(R.id.city_list);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setAdapter(new WeatherListAdapter(new WeatherProviderHC().readWeather(), weatherList));
+        //weatherList storing the different WeatherPOJO object should be the parameter here
+        rv.setAdapter(new WeatherListAdapter(new WeatherProviderHC().readWeather()));
     }
 
 
     class WeatherListAdapter extends RecyclerView.Adapter<WeatherViewHolder>{
         private final List<WeatherHC> cities;
-        private final List<WeatherPOJO> citiesList;
 
 
-        WeatherListAdapter(List<WeatherHC> cities, List<WeatherPOJO> citiesList){
+        WeatherListAdapter(List<WeatherHC> cities){
             this.cities = cities;
-            this.citiesList = citiesList;
         }
 
         @Override
@@ -151,16 +150,12 @@ public class MainActivity extends AppCompatActivity {
                     holder.icon.setImageResource(R.drawable.d04);
                     break;
             }
-            //Resources res = getResources(R.drawable.01d);
-            //holder.icon.setImageResource(res);
-           /* holder.icon.setText(cities.get(position).getIcon());
-            Typeface tf = Typeface.createFromAsset(getAssets(),
-                    "weather.ttf");
-            holder.icon.setTypeface(tf);*/
-            if(weatherInfo != null){
-                holder.cityName.setText(weatherInfo.getName());
-                holder.temperature.setText(weatherInfo.getMain().getTemp().toString());
-            }
+            //This is how I would set the data from weatherList
+            /*
+            if(weatherList != null){
+                holder.cityName.setText(weatherInfo.get(position).getName());
+                holder.temperature.setText(weatherInfo.get(position).getMain().getTemp().toString());
+            }*/
 
         }
 
