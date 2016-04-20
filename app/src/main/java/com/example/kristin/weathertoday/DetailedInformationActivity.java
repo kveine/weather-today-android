@@ -3,6 +3,7 @@ package com.example.kristin.weathertoday;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class DetailedInformationActivity extends AppCompatActivity {
     List<WeatherHC> cityList;
     int position;
     TextView name, temperature, clouds, date, wind, cloudiness, pressure, humidity, sunrise, sunset, coords;
+    ImageView icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,20 +31,36 @@ public class DetailedInformationActivity extends AppCompatActivity {
         name = (TextView)findViewById(R.id.city_name);
         name.setText(cityList.get(position).getCity());
         temperature = (TextView)findViewById(R.id.city_temperature);
-        temperature.setText(cityList.get(position).getTemperature());
+        temperature.setText(cityList.get(position).getTemperature().toString() + "°C");
         wind = (TextView)findViewById(R.id.city_wind);
-        wind.setText(cityList.get(position).getWind());
+        wind.setText(cityList.get(position).getWind().toString());
         cloudiness = (TextView)findViewById(R.id.city_cloudiness);
         cloudiness.setText(cityList.get(position).getCloudiness());
         pressure = (TextView)findViewById(R.id.city_pressure);
-        pressure.setText(cityList.get(position).getPressure());
+        pressure.setText(cityList.get(position).getPressure().toString() + "hpa");
         humidity = (TextView)findViewById(R.id.city_humidity);
-        humidity.setText(cityList.get(position).getHumidity());
+        humidity.setText(cityList.get(position).getHumidity().toString() + "%");
         sunrise = (TextView)findViewById(R.id.city_sunrise);
-        sunrise.setText(cityList.get(position).getSunrise());
+        sunrise.setText(cityList.get(position).getSunrise().toString());
         sunset = (TextView)findViewById(R.id.city_sunset);
-        sunset.setText(cityList.get(position).getSunset());
+        sunset.setText(cityList.get(position).getSunset().toString());
         coords = (TextView)findViewById(R.id.city_coords);
         coords.setText(cityList.get(position).getGeoCoords());
+        icon = (ImageView)findViewById(R.id.city_icon);
+
+        switch (cityList.get(position).getIcon()){
+            case "d01":
+                icon.setImageResource(R.drawable.d01);
+                break;
+            case "d02":
+                icon.setImageResource((R.drawable.d02));
+                break;
+            case "d03":
+                icon.setImageResource(R.drawable.d03);
+                break;
+            case "d04":
+                icon.setImageResource(R.drawable.d04);
+                break;
+        }
     }
 }

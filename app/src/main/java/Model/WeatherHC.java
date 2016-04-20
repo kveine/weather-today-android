@@ -1,23 +1,25 @@
 package Model;
 
+import java.util.Date;
+
 /**
  * Created by Kristin on 19.04.2016.
  */
 public class WeatherHC {
     private final String city;
-    private final String temperature;
-    private final String wind;
+    private final Integer temperature;
+    private final Double wind;
     private final String cloudiness;
-    private final String pressure;
-    private final String humidity;
-    private final String sunrise;
-    private final String sunset;
+    private final Integer pressure;
+    private final Integer humidity;
+    private final Integer sunrise;
+    private final Integer sunset;
     private final String geoCoords;
     private final String icon;
 
 
-    public WeatherHC(String city, String temperature, String wind, String cloudiness, String pressure,
-                     String humidity, String sunrise, String sunset, String geoCoords, String icon  ) {
+    public WeatherHC(String city, Integer temperature, Double wind, String cloudiness, Integer pressure,
+                     Integer humidity, Integer sunrise, Integer sunset, String geoCoords, String icon) {
         this.city = city;
         this.temperature = temperature;
         this.wind = wind;
@@ -34,11 +36,11 @@ public class WeatherHC {
         return city;
     }
 
-    public String getTemperature(){
+    public Integer getTemperature(){
         return temperature;
     }
 
-    public String getWind(){
+    public Double getWind(){
         return wind;
     }
 
@@ -46,19 +48,19 @@ public class WeatherHC {
         return cloudiness;
     }
 
-    public String getPressure(){
+    public Integer getPressure(){
         return pressure;
     }
 
-    public String getHumidity(){
+    public Integer getHumidity(){
         return humidity;
     }
 
-    public String getSunrise(){
+    public Integer getSunrise(){
         return sunrise;
     }
 
-    public String getSunset(){
+    public Integer getSunset(){
         return sunset;
     }
 

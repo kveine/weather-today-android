@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
         public void onBindViewHolder(WeatherViewHolder holder, int position) {
 
             holder.cityName.setText(cities.get(position).getCity());
-            holder.temperature.setText(cities.get(position).getTemperature());
+            holder.temperature.setText(cities.get(position).getTemperature().toString() + "°C");
 
             switch (cities.get(position).getIcon()){
                 case "d01":
