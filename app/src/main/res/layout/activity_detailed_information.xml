@@ -34,17 +34,6 @@
 
     </LinearLayout>
 
-
-    <TextView
-        android:id="@+id/city_clouds"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/city_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -54,7 +43,7 @@
         <TableRow>
             <TextView
                 android:layout_column="1"
-                android:text="Wind:"
+                android:text="@string/wind"
                 android:padding="3dip" />
             <TextView
                 android:id="@+id/city_wind"
@@ -65,7 +54,7 @@
         <TableRow>
             <TextView
                 android:layout_column="1"
-                android:text="Cloudiness:"
+                android:text="@string/cloudiness"
                 android:padding="3dip" />
             <TextView
                 android:id="@+id/city_cloudiness"
@@ -76,7 +65,7 @@
         <TableRow>
             <TextView
                 android:layout_column="1"
-                android:text="Pressure:"
+                android:text="@string/pressure"
                 android:padding="3dip" />
             <TextView
                 android:id="@+id/city_pressure"
@@ -87,7 +76,7 @@
         <TableRow>
             <TextView
                 android:layout_column="1"
-                android:text="Humidity:"
+                android:text="@string/humidity"
                 android:padding="3dip" />
             <TextView
                 android:id="@+id/city_humidity"
@@ -98,7 +87,7 @@
         <TableRow>
             <TextView
                 android:layout_column="1"
-                android:text="Sunrise:"
+                android:text="@string/sunrise"
                 android:padding="3dip" />
             <TextView
                 android:id="@+id/city_sunrise"
@@ -109,7 +98,7 @@
         <TableRow>
             <TextView
                 android:layout_column="1"
-                android:text="Sunset:"
+                android:text="@string/sunset"
                 android:padding="3dip" />
             <TextView
                 android:id="@+id/city_sunset"
@@ -120,7 +109,7 @@
         <TableRow>
             <TextView
                 android:layout_column="1"
-                android:text="Geo Coords:"
+                android:text="@string/coords"
                 android:padding="3dip" />
             <TextView
                 android:id="@+id/city_coords"

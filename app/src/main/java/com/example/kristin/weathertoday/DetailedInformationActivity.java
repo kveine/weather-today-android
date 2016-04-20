@@ -16,7 +16,7 @@ public class DetailedInformationActivity extends AppCompatActivity {
 
     List<WeatherHC> cityList;
     int position;
-    TextView name, temperature, clouds, date, wind, cloudiness, pressure, humidity, sunrise, sunset, coords;
+    TextView name, temperature, wind, cloudiness, pressure, humidity, sunrise, sunset, coords;
     ImageView icon;
 
     @Override
