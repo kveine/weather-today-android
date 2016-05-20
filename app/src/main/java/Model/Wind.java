@@ -5,10 +5,10 @@ package Model;
  */
 public class Wind {
     private Double speed;
-    private Integer deg;
+    private Double deg;
     private Double gust;
 
-    public  Wind(Double speed, Integer deg, Double gust){
+    public  Wind(Double speed, Double deg, Double gust){
         this.speed = speed;
         this.deg = deg;
         this.gust = gust;
@@ -22,11 +22,11 @@ public class Wind {
         this.speed = speed;
     }
 
-    public Integer getDeg() {
+    public Double getDeg() {
         return deg;
     }
 
-    public void setDeg(Integer deg) {
+    public void setDeg(Double deg) {
         this.deg = deg;
     }
 
